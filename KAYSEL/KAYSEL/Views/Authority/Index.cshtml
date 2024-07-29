@@ -1,0 +1,112 @@
+﻿@model IEnumerable<KAYSEL.Models.Authority>
+
+@{
+    ViewBag.Title = "Authorities Index";
+}
+
+<h2 class="mb-4">Authorities</h2>
+<hr />
+
+<style>
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 1rem;
+    }
+
+    .table thead th {
+        background-color: #343a40;
+        color: #fff;
+        font-size: 1.1rem;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table .icon-cell {
+        font-size: 1.5rem;
+    }
+
+    .btn-edit {
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+            text-decoration: none;
+        }
+
+    .btn-delete {
+        color: #fff;
+        background-color: #dc3545;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            text-decoration: none;
+        }
+
+    .btn-create {
+        color: #fff;
+        background-color: #28a745;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-create:hover {
+            background-color: #218838;
+            text-decoration: none;
+        }
+</style>
+
+<div class="container">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().NameandSurname)</th>
+                <th>@Html.DisplayNameFor(model => model.First().AuthorityLevel)</th>
+                <th>@Html.DisplayNameFor(model => model.First().AuthorityStart)</th>
+                <th>@Html.DisplayNameFor(model => model.First().AuthorityEnd)</th>
+                <th>@Html.DisplayNameFor(model => model.First().AuthorityStatus)</th>
+                <th>@Html.DisplayNameFor(model => model.First().EndEntry)</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NameandSurname)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AuthorityLevel)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AuthorityStart)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AuthorityEnd)</td>
+                    <td>@Html.DisplayFor(modelItem => item.AuthorityStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EndEntry)</td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-delete btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr />
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
+    </p>
+</div>
+
+<!-- Ensure jQuery and Bootstrap scripts are included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

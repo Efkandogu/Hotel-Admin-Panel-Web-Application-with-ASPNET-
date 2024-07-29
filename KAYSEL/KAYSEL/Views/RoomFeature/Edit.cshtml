@@ -1,0 +1,72 @@
+﻿@model KAYSEL.Models.RoomFeature
+
+@{
+    ViewBag.Title = "Edit Room Feature";
+}
+
+<h2>Edit Room Feature</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <h4>Edit Room Feature</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.TV, new { @class = "form-label" })
+                <div class="form-check">
+                    @Html.EditorFor(model => model.TV, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.TV, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.AirConditioning, new { @class = "form-label" })
+                <div class="form-check">
+                    @Html.EditorFor(model => model.AirConditioning, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.AirConditioning, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Cupboard, new { @class = "form-label" })
+                <div class="form-check">
+                    @Html.EditorFor(model => model.Cupboard, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.Cupboard, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Hanger, new { @class = "form-label" })
+                <div class="form-check">
+                    @Html.EditorFor(model => model.Hanger, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.Hanger, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Freezer, new { @class = "form-label" })
+                <div class="form-check">
+                    @Html.EditorFor(model => model.Freezer, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.Freezer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary ml-2" })
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Ensure jQuery and validation scripts are included -->
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

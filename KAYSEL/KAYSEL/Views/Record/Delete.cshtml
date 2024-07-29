@@ -1,0 +1,44 @@
+﻿@model KAYSEL.Models.Record
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h2 class="mb-4">Delete Record</h2>
+
+<div class="container">
+    <h3 class="text-danger">Are you sure you want to delete this record?</h3>
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Record Details</h4>
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Authority.NameandSurname)</dt >
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Authority.NameandSurname)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Guest.FirstName)</dt >
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Guest.FirstName)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Revenues)</dt >
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Revenues)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DateOfRegistration)</dt >
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.DateOfRegistration)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IsDeleted)</dt >
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.IsDeleted)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Room.RoomNo)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Room.RoomNo)</dd>
+            </dl>
+        </div>
+        <div class="panel-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger">Delete</button>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            }
+        </div>
+    </div>
+

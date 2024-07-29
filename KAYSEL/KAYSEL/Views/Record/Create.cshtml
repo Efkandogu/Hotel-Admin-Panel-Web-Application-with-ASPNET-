@@ -1,0 +1,101 @@
+﻿@model KAYSEL.Models.Record
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="mb-4">Create Record</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Authority Person</h4>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.AuthorityID, "Authority Person", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-9">
+                        @Html.DropDownList("AuthorityId", null, "Select Authority Person", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AuthorityID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <h4 class="card-title mb-4">Room Information</h4>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.RoomID, "Room No", new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-9">
+                        @Html.DropDownList("RoomId", null, "Select Room No", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Revenues, new { @class = "col-sm-3 col-form-label" })
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(model => model.Revenues, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Revenues, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <h4 class="card-title mb-4">Guest Information</h4>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="GuestFirstName" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="GuestLastName" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">TC No</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="GuestTcNo" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nationality</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="GuestNationality" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Home Town</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="GuestHomeTown" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12 text-center">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container mt-3">
+    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary" })
+</div>
+
+<!-- Ensure jQuery and Bootstrap scripts are included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

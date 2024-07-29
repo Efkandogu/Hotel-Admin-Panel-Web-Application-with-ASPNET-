@@ -1,0 +1,78 @@
+﻿@model KAYSEL.Models.Authority
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="mb-4">Delete Authority</h2>
+
+<div class="container">
+    <h3 class="text-danger">Are you sure you want to delete this record?</h3>
+
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Authority Details</h4>
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.NameandSurname)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.NameandSurname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AuthorityLevel)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AuthorityLevel)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AuthorityStart)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AuthorityStart)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AuthorityEnd)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AuthorityEnd)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AuthorityStatus)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AuthorityStatus)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.EndEntry)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.EndEntry)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.IsDeleted)
+            </dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+        </div>
+    }
+</div>
+
+<!-- Ensure jQuery and Bootstrap scripts are included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>

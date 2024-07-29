@@ -1,0 +1,152 @@
+﻿@model IEnumerable<KAYSEL.Models.RoomFeature>
+
+@{
+    ViewBag.Title = "Room Features";
+}
+
+<h2 class="mb-4">Room Features</h2>
+
+@if (TempData["RoomFeature"] != null)
+{
+    var roomFeature = (KAYSEL.Models.RoomFeature)TempData["RoomFeature"];
+
+    <div class="alert alert-success" role="alert">
+        <strong><span class="glyphicon glyphicon-ok"></span> Saved successfully.</strong>
+    </div>
+}
+
+<style>
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 1rem;
+    }
+
+    .table thead th {
+        background-color: #343a40;
+        color: #fff;
+        font-size: 1.1rem;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table th:nth-child(1), .table td:nth-child(1) {
+        width: 10%;
+    }
+
+    .table th:nth-child(2), .table td:nth-child(2),
+    .table th:nth-child(3), .table td:nth-child(3),
+    .table th:nth-child(4), .table td:nth-child(4),
+    .table th:nth-child(5), .table td:nth-child(5),
+    .table th:nth-child(6), .table td:nth-child(6) {
+        width: 10%;
+    }
+
+    .table th:nth-child(7), .table td:nth-child(7) {
+        width: 40%;
+    }
+
+    .table .icon-cell {
+        font-size: 1.5rem;
+    }
+
+        .table .icon-cell.red {
+            color: #dc3545;
+        }
+
+        .table .icon-cell.green {
+            color: #28a745;
+        }
+
+    .btn-edit {
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+            text-decoration: none;
+        }
+</style>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Room.RoomNo)</th>
+            <th>@Html.DisplayNameFor(model => model.TV)</th>
+            <th>@Html.DisplayNameFor(model => model.AirConditioning)</th>
+            <th>@Html.DisplayNameFor(model => model.Cupboard)</th>
+            <th>@Html.DisplayNameFor(model => model.Hanger)</th>
+            <th>@Html.DisplayNameFor(model => model.Freezer)</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Room.RoomNo)</td>
+                <td class="icon-cell">
+                    @if (item.TV)
+                    {
+                        <span class="icon-cell green" style="font-family: wingdings;">&#252;</span>
+                    }
+                    else
+                    {
+                        <span class="icon-cell red" style="font-family: wingdings;">&#251;</span>
+                    }
+                </td>
+                <td class="icon-cell">
+                    @if (item.AirConditioning)
+                    {
+                        <span class="icon-cell green" style="font-family: wingdings;">&#252;</span>
+                    }
+                    else
+                    {
+                        <span class="icon-cell red" style="font-family: wingdings;">&#251;</span>
+                    }
+                </td>
+                <td class="icon-cell">
+                    @if (item.Cupboard)
+                    {
+                        <span class="icon-cell green" style="font-family: wingdings;">&#252;</span>
+                    }
+                    else
+                    {
+                        <span class="icon-cell red" style="font-family: wingdings;">&#251;</span>
+                    }
+                </td>
+                <td class="icon-cell">
+                    @if (item.Hanger)
+                    {
+                        <span class="icon-cell green" style="font-family: wingdings;">&#252;</span>
+                    }
+                    else
+                    {
+                        <span class="icon-cell red" style="font-family: wingdings;">&#251;</span>
+                    }
+                </td>
+                <td class="icon-cell">
+                    @if (item.Freezer)
+                    {
+                        <span class="icon-cell green" style="font-family: wingdings;">&#252;</span>
+                    }
+                    else
+                    {
+                        <span class="icon-cell red" style="font-family: wingdings;">&#251;</span>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-edit btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<KAYSEL.Models.Record>
+
+@{
+    ViewBag.Title = "Records";
+}
+
+<h2 class="mb-4">Records</h2>
+<hr />
+
+<style>
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 1rem;
+    }
+
+    .table thead th {
+        background-color: #343a40;
+        color: #fff;
+        font-size: 1.1rem;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table .icon-cell {
+        font-size: 1.5rem;
+    }
+
+        .table .icon-cell.red {
+            color: #dc3545;
+        }
+
+        .table .icon-cell.green {
+            color: #28a745;
+        }
+
+    .btn-edit {
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+            text-decoration: none;
+        }
+
+    .btn-delete {
+        color: #fff;
+        background-color: #dc3545;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+            text-decoration: none;
+        }
+
+    .btn-add {
+        color: #fff;
+        background-color: #28a745;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+        .btn-add:hover {
+            background-color: #218838;
+            text-decoration: none;
+        }
+</style>
+
+<div class="container">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Authority.NameandSurname)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Guest.FirstName)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Guest.LastName)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Guest.TcNo)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Revenues)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DateOfRegistration)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Room.RoomNo)</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Authority.NameandSurname)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Guest.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Guest.LastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Guest.TcNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Revenues)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DateOfRegistration)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Room.RoomNo)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-edit btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-delete btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<hr />
+<div class="container">
+    <p>
+        @Html.ActionLink("Add New Record", "Create", null, new { @class = "btn btn-add" })
+    </p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
